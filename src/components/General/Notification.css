@@ -1,0 +1,23 @@
+.notification {
+    position: absolute;
+    top: 200px;
+    right: 30px;
+    background:rgb(161, 160, 156);
+    padding: 10px;
+}
+
+.warning{
+    padding:10px;
+    background:red;
+}
+
+.info{
+    padding:10px;
+    background:rgb(94, 94, 241);
+}
+
+
+.success{
+    padding:10px;
+    background:rgb(80, 179, 80);
+}

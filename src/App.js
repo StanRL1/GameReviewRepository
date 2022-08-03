@@ -1,24 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import Info from './components/Info/Info.js';
+import Header from './components/Header/Header.js';
+import Footer from './components/Footer/Footer';
+import About from './components/About/About';
+import Dashboard from './components/Dashboard/Dashboard';
+import GameReview from './components/GameReview/GameReview';
+import Reviews from './components/Reviews/Reviews';
+import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
+import Register from './components/Register/Register.js';
+import Contact from './components/ContactUs/Contact.js';
+import MyReviews from './components/MyReviews/MyReviews.js';
+import WriteReview from './components/WriteReview/WriteReview';
+import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Notification from './components/General/Notification';
+import PrivateRoute from './components/General/PrivateRoute';
+import NotFoundErrorBoundary from './components/General/NotFoundErrorBoundary';
+import { NotificationProvider } from './contexts/NotificationContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NotFoundErrorBoundary>
+      <AuthProvider>
+        <Info></Info>
+        <NotificationProvider>
+          <Header></Header>
+          <Notification></Notification>
+          <main id="site-content">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/reviews" element={<PrivateRoute><Reviews /></PrivateRoute>} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
+              <Route path="/gameReview/:reviewId" element={<GameReview />} />
+              <Route path="/writeReview" element={<PrivateRoute><WriteReview /></PrivateRoute>} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/myReviews" element={<PrivateRoute><MyReviews /></PrivateRoute>} />
+              <Route path="/*" element={<Dashboard />} />
+            </Routes>
+          </main>
+        </NotificationProvider>
+        <Footer></Footer>
+      </AuthProvider>
+    </NotFoundErrorBoundary>
   );
 }
 
