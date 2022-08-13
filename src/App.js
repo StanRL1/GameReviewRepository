@@ -18,6 +18,7 @@ import Notification from './components/General/Notification';
 import PrivateRoute from './components/General/PrivateRoute';
 import NotFoundErrorBoundary from './components/General/NotFoundErrorBoundary';
 import { NotificationProvider } from './contexts/NotificationContext';
+import Edit from './components/Edit/Edit.js';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/myReviews" element={<PrivateRoute><MyReviews /></PrivateRoute>} />
               <Route path="/*" element={<Dashboard />} />
+              <Route path="/edit/:reviewId" element={<PrivateRoute><Edit/></PrivateRoute>} />
             </Routes>
           </main>
         </NotificationProvider>

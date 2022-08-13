@@ -25,7 +25,7 @@ export const create = async (reviewData, token) => {
     return result;
 };
 
-export const update = (reviewId, reviewData) => request.put(`${baseUrl}/pets/${reviewId}`, reviewData);
+export const update = (reviewId, reviewData) => request.put(`${baseUrl}/reviews/${reviewId}`, reviewData);
 
 export const getOne = (reviewId, signal) => {
     return fetch(`${baseUrl}/reviews/${reviewId}`, { signal })

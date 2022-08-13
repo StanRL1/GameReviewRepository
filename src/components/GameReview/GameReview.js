@@ -95,10 +95,6 @@ const GameReview = () => {
 
     };
 
-    const editHandler = () => {
-
-    }
-
     const likeButtonClick = (e) => {
         e.preventDefault();
         if (user._id === review._ownerId) {
@@ -128,9 +124,7 @@ const GameReview = () => {
     }
     const ownerButtons = (
         <div>
-            <button onClick={likeButtonClick} className="buttonDelete" disabled={review.likes?.includes(user._id)}>Like</button>;
-
-            {/* <button onClick={editHandler} className="buttonDelete" >Edit</button> */}
+            <Link className="buttonDelete" to={`/edit/${review._id}`}>Edit</Link>
             <button onClick={deleteHandler} className="buttonDelete" >Delete</button>
         </div>
     );
@@ -142,7 +136,10 @@ const GameReview = () => {
                 <div class="blog-info">
                     <div class="blog-info-text">
                         <div class="blog-img">
-                            <img src={review.imgUrl} alt="" />
+                            <h1>{review.reviewTitle}</h1>
+                        </div>
+                        <div class="blog-img">
+                            <img src={review.imageUrl} alt="" />
                         </div>
                         <p class="snglp">{review.content}</p>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
