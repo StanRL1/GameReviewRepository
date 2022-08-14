@@ -152,8 +152,7 @@ const GameReview = () => {
                             <li><span class="clndr"></span>{review.date}</li>
                             <li><span class="admin"></span> {review.ownerName}</li>
                             <li><span class="cmnts"></span>{comments.length}</li>
-
-                            <li>{review.likes?.length || 0}</li>
+							<li><a class="like"></a>{review.likes?.length || 0}</li>
                         </ul>
                     </div>
                     <div>

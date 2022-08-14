@@ -32,7 +32,7 @@ const WriteReview = () => {
                 }, user.accessToken)
                     .then(result => {
                         addNotification("Review submitted", types.success);
-                        navigate('/');
+                        navigate('/myReviews');
                     })
             } catch (e) {
                 console.log("Cant create review")

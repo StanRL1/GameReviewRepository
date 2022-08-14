@@ -1,7 +1,8 @@
 import * as authService from '../../services/authService';
 import { useNavigate } from 'react-router';
-import { useAuthContext } from '../../contexts/AuthContext'; 
+import { useAuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import { type } from '@testing-library/user-event/dist/type';
 
 const Login = () => {
 
@@ -11,17 +12,22 @@ const Login = () => {
 
     const loginSubmitHandler = (e) => {
         e.preventDefault();
-        try{
-        let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
-        authService.login(email, password)   
-            .then(authData => {
-                login(authData);
-                addNotification("Successfully logged in",types.info);
-                navigate('/');
-            });
-        }catch(e){
+        try {
+            let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+            if (email && password) {
+                authService.login(email, password)
+                    .then(authData => {
+                        login(authData);
+                        addNotification("Successfully logged in", types.info);
+                        navigate('/');
+                    }).catch((error)=>{
+                        addNotification("Wrong credentials",types.danger);
+                    });
+            }
+        } catch (e) {
             console.log("Cant log in")
         }
+
     }
 
     return (

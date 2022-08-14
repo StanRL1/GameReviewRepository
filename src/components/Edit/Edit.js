@@ -26,7 +26,6 @@ const Edit = () => {
         let reviewData = Object.fromEntries(new FormData(e.currentTarget))
         reviewService.update(review._id, reviewData)
             .then(navigate(-1));
-        //TODO:Navigate
     }
 
     return (

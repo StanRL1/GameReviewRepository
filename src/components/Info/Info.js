@@ -4,17 +4,11 @@ const Info = () => {
         <div class="container">
             <div class="headr-left">
                 <div class="social">
-                    <a href="#"><i class="facebook"></i></a>
+                    <a href="https://www.facebook.com/stilian.georgiev.75"><i class="facebook"></i></a>
                     <a href="#"><i class="twitter"></i></a>
                     <a href="#"><i class="gplus"></i></a>
-                    <a href="#"><i class="pin"></i></a>
+                    <a href="https://www.instagram.com/stiliqn.georgiev/"><i class="pin"></i></a>
                     <a href="#"><i class="youtube"></i></a>
-                </div>
-                <div class="search">
-                    <form>
-                        <input type="submit" value=""></input>
-                        <input type="text" value="" placeholder="Search..."></input>
-                    </form>
                 </div>
                 <div class="clearfix"></div>
             </div>

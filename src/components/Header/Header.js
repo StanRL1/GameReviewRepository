@@ -11,6 +11,8 @@ const Header = () => {
             <Link className="button" to="/about">About</Link>
             <Link className="button" to="/login">Login</Link>
             <Link className="button" to="/register">Register</Link>
+            <Link className="button" to="/contact">Mail</Link>
+
         </div>
     );
 
@@ -34,10 +36,12 @@ const Header = () => {
                 <div class="top-menu">
                     <span class="menu"></span>
                     <ul class="nav1">
+                        
                     {user.email
                         ? userNavigation
                         : guestNavigation
                     }
+                    
                     </ul>
                 </div>
                 <div class="clearfix"></div>

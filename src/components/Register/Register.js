@@ -14,12 +14,12 @@ const Register = () => {
 
         let { email, psw, pswrepeat } = Object.fromEntries(new FormData(e.currentTarget));
 
-        if (psw === pswrepeat) {
+        if (psw === pswrepeat && email && psw) {
             try{
             authService.register(email, psw)
                 .then(authData => {
                     login(authData);
-
+                    addNotification("Registered successfully", types.success)
                     navigate('/');
                 });
             }catch(e){
