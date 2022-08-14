@@ -3,10 +3,10 @@ import MyImage from '../../../images/icon1.png';
 import * as commentService from '../../../services/commentService';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../../../contexts/AuthContext';
-import { navigate } from "@reach/router"
 const CommentComponent = (
     comment
 ) => {
+    const navigate= useNavigate();
         const { user } = useAuthContext();
     const commentId = comment.comment._id;
     const commentUserId= comment.comment.userId;
@@ -15,7 +15,6 @@ const CommentComponent = (
         try{
         commentService.deleteComment(commentId, user.accessToken)
             .then(() => {
-                
                 navigate("/reviews");
             });
         }catch(e){

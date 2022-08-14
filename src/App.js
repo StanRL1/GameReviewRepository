@@ -38,7 +38,7 @@ function App() {
               <Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
               <Route path="/gameReview/:reviewId" element={<GameReview />} />
               <Route path="/writeReview" element={<PrivateRoute><WriteReview /></PrivateRoute>} />
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
               <Route path="/myReviews" element={<PrivateRoute><MyReviews /></PrivateRoute>} />
               <Route path="/*" element={<Dashboard />} />
               <Route path="/edit/:reviewId" element={<PrivateRoute><Edit/></PrivateRoute>} />

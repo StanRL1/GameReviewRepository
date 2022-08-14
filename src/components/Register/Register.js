@@ -8,7 +8,7 @@ const Register = () => {
     const navigate = useNavigate();
     const { login } = useAuthContext();
     const { addNotification } = useNotificationContext();
-
+    
     const registerSubmitHandler = (e) => {
         e.preventDefault();
 
