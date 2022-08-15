@@ -24,6 +24,8 @@ const Edit = () => {
         e.preventDefault();
 
         let reviewData = Object.fromEntries(new FormData(e.currentTarget))
+        reviewData={...reviewData,likes:review.likes};
+        console.log(reviewData);
         reviewService.update(review._id, reviewData)
             .then(navigate(-1));
     }

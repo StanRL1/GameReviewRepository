@@ -100,6 +100,7 @@ const GameReview = () => {
         if (user._id === review._ownerId) {
             return;
         }
+        console.log(review);
 
         if (review.likes.includes(user._id)) {
             addNotification("You have already liked that review",types.info);
