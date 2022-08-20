@@ -6,8 +6,8 @@ const GameReviewComponent = ({
     return (
         <div class="col-md-4 sed-md">
             <div class=" col-1">
-                <a href="single.html"><img class="img-responsive" src={review.imageUrl} alt=""></img></a>
-                <h4><a href="single.html">{review.reviewTitle}</a></h4>
+               <div><img class="img-responsive" src={review.imageUrl} alt=""></img></div>
+                <h4><div>{review.reviewTitle}</div></h4>
                 <Link className="detailsButton" to={`/gameReview/${review._id}`}>Details</Link>
             </div>
         </div>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import { type } from '@testing-library/user-event/dist/type';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -48,7 +49,7 @@ const Login = () => {
                 </div>
 
                 <div class="container signin">
-                    <p>Dont have an account? <a href="/register">Register</a>.</p>
+                    <p>Dont have an account?<Link className="button" to="/register">Register</Link></p>
                 </div>
             </form>
         </section>

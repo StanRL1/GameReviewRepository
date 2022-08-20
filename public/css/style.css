@@ -250,6 +250,8 @@ color:#000 !important;
 .slider {
 	position: relative;
 }
+
+
 .rslides {
   position: relative;
   list-style: none;
@@ -759,6 +761,7 @@ font-size: 0.9em;
 .col-1 {
 	background: #eee;
 	  padding: 1em;
+    overflow: hidden;
 }
 .col-1 h4{
 	font-size:1.2em;

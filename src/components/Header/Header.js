@@ -22,6 +22,7 @@ const Header = () => {
             <Link className="button" to="/myReviews">MyReviews</Link>
             <Link className="button" to="/writeReview">Write a Review</Link>
             <Link className="button" to="/contact">Mail</Link>
+            <Link className="button" to="/editProfile">Edit Profile</Link>
             <Link className="button" to="/logout">Logout</Link>
         </div>
     );
@@ -30,7 +31,7 @@ const Header = () => {
         <div class="banner-info">
             <div class="container top">
                 <div class="logo">
-                    <h1><a href="/">Adventure Gaming</a></h1>
+                    <h1><Link className="button" to="/">Adventure Gaming</Link></h1>
                 </div>
                 <div class="top-menu">
                     <span class="menu"></span>

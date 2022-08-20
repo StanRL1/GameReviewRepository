@@ -2,6 +2,7 @@ import * as authService from '../../services/authService';
 import { useAuthContext } from '../../contexts/AuthContext.js';
 import { useNavigate } from 'react-router';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -12,15 +13,20 @@ const Register = () => {
     const registerSubmitHandler = (e) => {
         e.preventDefault();
 
-        let { email, psw, pswrepeat } = Object.fromEntries(new FormData(e.currentTarget));
+        let { email, psw, pswrepeat ,name} = Object.fromEntries(new FormData(e.currentTarget));
 
-        if (psw === pswrepeat && email && psw) {
+        if (psw && pswrepeat && psw === pswrepeat && email && name ) {
             try{
-            authService.register(email, psw)
+            authService.register(email, psw,name)
                 .then(authData => {
+                    console.log(authData.message);
+                    if(authData.message==="A user with the same email already exists"){
+                        addNotification("A user with the same email already exists",types.warn);
+                    }else{
                     login(authData);
                     addNotification("Registered successfully", types.success)
                     navigate('/');
+                    }
                 });
             }catch(e){
                 console.log("Cant register")
@@ -41,6 +47,9 @@ const Register = () => {
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" id="email" required></input>
 
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter name" name="name" id="name" required></input>
+
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id="psw" required></input>
 
@@ -53,7 +62,7 @@ const Register = () => {
                 </div>
 
                 <div class="container signin">
-                    <p>Already have an account? <a href="/login">Sign in</a>.</p>
+                    <p>Already have an account? <Link className="button" to="/login">Login</Link>.</p>
                 </div>
             </form>
         </section>

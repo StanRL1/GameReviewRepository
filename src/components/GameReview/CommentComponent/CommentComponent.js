@@ -25,9 +25,9 @@ const CommentComponent = (
     return (
         <div class="media response-info">
             <div class="media-left response-text-left">
-                <a>
+                <div>
                     <img class="media-object" src={MyImage} alt="" />
-                </a>
+                </div>
                 <h5>{ comment.comment.writer}</h5>
             </div>
             <div class="media-body response-text-right">

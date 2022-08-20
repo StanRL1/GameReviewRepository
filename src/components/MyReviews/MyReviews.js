@@ -10,6 +10,7 @@ const MyPets = () => {
     const { user } = useAuthContext();
 
     useEffect(() => {
+		console.log(user);
 		try{
         reviewService.getMyReviews(user._id)
             .then(petResult => {

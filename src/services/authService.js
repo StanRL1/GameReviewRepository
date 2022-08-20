@@ -1,3 +1,5 @@
+import * as request from './requester';
+
 const baseUrl = 'http://localhost:3030';
 
 export const login = async (email, password) => {
@@ -18,13 +20,13 @@ export const login = async (email, password) => {
     }
 };
 
-export const register = (email, password) => {
+export const register = (email, password,name) => {
     return fetch(`${baseUrl}/users/register`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password,name })
     })
         .then(res => res.json()); 
 };
@@ -45,4 +47,16 @@ export const getUser = () => {
 
 export const isAuthenticated = () => {
     return Boolean(getUser())
+};
+
+export const update = (userId,accessToken, userData) => {
+    console.log(JSON.stringify(userData))
+    return fetch(`${baseUrl}/users/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'X-Authorization': accessToken
+        },
+        body: JSON.stringify(userData)
+    }).then(res => res.json());
 };
