@@ -758,6 +758,10 @@ font-size: 0.9em;
 .review {
   padding: 3em 0 5em;
 }
+.welcomeMessage{
+  color: white;
+  margin-right: 200px;
+}
 .col-1 {
 	background: #eee;
 	  padding: 1em;
@@ -1903,6 +1907,10 @@ span.menu {
 }
 ul.nav1 {
 		display: none;
+}
+
+#user{
+  margin: 20px;
 }
 .top-menu ul {
 		padding: 0px 0 5px 0;

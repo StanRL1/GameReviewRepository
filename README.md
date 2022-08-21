@@ -29,7 +29,11 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-##Description
+### `node server.js`
+
+Starts the server , has to be used in the directory of the server .
+
+### Description
 
 This is a project for Softuni Frontend course . The goal of the project is a Game review Web Page , where you can write reviews , read reviews , check their details, like them , comment them and have page for personal reviews . Also a contact page , about page and login/register/logout are avaiblable. 
 

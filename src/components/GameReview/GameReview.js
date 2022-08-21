@@ -87,10 +87,10 @@ const GameReview = () => {
             comments.forEach(comment => commentService.deleteComment(comment._id, user.accessToken));
             likes.forEach(like => likeService.deleteLike(like, user.accessToken));
             addNotification("Review Deleted",types.info);
-            navigate("/");
+            navigate("/reviews");
 
         } catch (ex) {
-            console.log("Cant delete review")
+            addNotification("Cant delete review!",types.error);
         }
 
     };

@@ -17,7 +17,7 @@ const Header = () => {
 
     let userNavigation = (
         <div id="user">
-            <span>Welcome, {user.email}</span>
+            <span className='welcomeMessage'>Welcome, {user.email}</span>
             <Link className="button" to="/reviews">Reviews</Link>
             <Link className="button" to="/myReviews">MyReviews</Link>
             <Link className="button" to="/writeReview">Write a Review</Link>
@@ -35,7 +35,7 @@ const Header = () => {
                 </div>
                 <div class="top-menu">
                     <span class="menu"></span>
-                    <ul class="nav1">
+                    <ul class="main-navigation">
                         
                     {user.email
                         ? userNavigation
