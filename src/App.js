@@ -20,6 +20,8 @@ import NotFoundErrorBoundary from './components/General/NotFoundErrorBoundary';
 import { NotificationProvider } from './contexts/NotificationContext';
 import Edit from './components/Edit/Edit.js';
 import EditProfile from './components/EditProfile/EditProfile.js';
+import Game from './components/Game/Game.js';
+import GameAll from './components/Game/GameAll';
 
 function App() {
   return (
@@ -33,6 +35,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/about" element={<About />} />
+              <Route path="/gameAll" element={<GameAll />} />
+
+              <Route path="/crateGame" element={<Game />} />
               <Route path="/register" element={<Register />} />
               <Route path="/reviews" element={<PrivateRoute><Reviews /></PrivateRoute>} />
               <Route path="/login" element={<Login />} />

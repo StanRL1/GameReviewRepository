@@ -18,6 +18,8 @@ const Header = () => {
     let userNavigation = (
         <div id="user">
             <span className='welcomeMessage'>Welcome, {user.email}</span>
+            <Link className="button" to="/crateGame">Create Game</Link>
+            <Link className="button" to="/gameAll">All Games</Link>
             <Link className="button" to="/reviews">Reviews</Link>
             <Link className="button" to="/myReviews">MyReviews</Link>
             <Link className="button" to="/writeReview">Write a Review</Link>
