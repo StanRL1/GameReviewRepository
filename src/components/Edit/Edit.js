@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Navigate, unstable_HistoryRouter  } from 'react-router-dom';
 import * as reviewService from '../../services/reviewService';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
+import { type } from '@testing-library/user-event/dist/type';
 
 
 const Edit = () => {
     const { reviewId } = useParams();
     const [review, setReview] = useState({});
     const navigate = useNavigate();
+    const { addNotification } = useNotificationContext();
 
     useEffect(() => {
         try {
@@ -25,9 +28,17 @@ const Edit = () => {
 
         let reviewData = Object.fromEntries(new FormData(e.currentTarget))
         reviewData={...reviewData,likes:review.likes};
-        console.log(reviewData);
-        reviewService.update(review._id, reviewData)
-            .then(navigate(-1));
+        if(reviewData.gameName && reviewData.reviewTitle && reviewData.imageUrl && reviewData.content){
+            try{
+            reviewService.update(review._id, reviewData)
+                .then(info=>{
+                    addNotification("Edited successfully",types.success);
+                    navigate(-1);
+                });
+            }catch(ex){
+                    addNotification("Something went wrong",types.error);
+            }
+        }
     }
 
     return (

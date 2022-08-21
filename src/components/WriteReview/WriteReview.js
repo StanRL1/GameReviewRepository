@@ -34,8 +34,8 @@ const WriteReview = () => {
                         addNotification("Review submitted", types.success);
                         navigate('/myReviews');
                     })
-            } catch (e) {
-                console.log("Cant create review")
+            } catch (ex) {
+                addNotification("Cant submit review",types.warn);
             }
         }else{
             addNotification("All fields have to be filled",types.warn);

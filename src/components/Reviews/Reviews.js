@@ -1,9 +1,11 @@
 import GameReviewComponent from "../GameReview/GameReviewComponent/GameReviewComponent";
 import { useState, useEffect } from 'react';
 import * as reviewService from '../../services/reviewService';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 const Reviews = () => {
 	const [reviews, setReviews] = useState([]);
+    const { addNotification } = useNotificationContext();
 
 	useEffect(() => {
 		try{
@@ -14,8 +16,8 @@ const Reviews = () => {
             .catch(err => {
                 console.log(err);
             })}
-			catch(e){
-				console.log(e.message);
+			catch(ex){
+				addNotification("Cannot load reviews");
 			}
     }, []);
 	

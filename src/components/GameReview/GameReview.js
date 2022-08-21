@@ -37,7 +37,7 @@ const GameReview = () => {
                 .then(likes => {
                     setLikes(state => ([...likes]))
                 })
-        } catch (e) {
+        } catch (ex) {
             console.log("Cant load content");
         }
 
@@ -66,7 +66,7 @@ const GameReview = () => {
                 });
                 addNotification("Comment submitted",types.info);
 
-            } catch (e) {
+            } catch (ex) {
                 console.log("Cannot submti comment");
             }
         }else{
@@ -87,11 +87,11 @@ const GameReview = () => {
             comments.forEach(comment => commentService.deleteComment(comment._id, user.accessToken));
             likes.forEach(like => likeService.deleteLike(like, user.accessToken));
             addNotification("Review Deleted",types.info);
+            navigate("/");
 
-        } catch (e) {
+        } catch (ex) {
             console.log("Cant delete review")
         }
-        navigate("/");
 
     };
 
@@ -117,9 +117,9 @@ const GameReview = () => {
                             console.log('success');
                         });
                 });
-            addNotification("Successfully logged in",types.info);
+            addNotification("Game Review liked !",types.info);
 
-        } catch (e) {
+        } catch (ex) {
             console.log("Cant like review")
         }
     }
@@ -154,6 +154,7 @@ const GameReview = () => {
                             <li><span class="admin"></span> {review.ownerName}</li>
                             <li><span class="cmnts"></span>{comments.length}</li>
 							<li><a class="like"></a>{review.likes?.length || 0}</li>
+                            <li>{review.gameName}</li>
                         </ul>
                     </div>
                     <div>

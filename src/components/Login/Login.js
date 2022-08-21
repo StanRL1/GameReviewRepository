@@ -25,7 +25,7 @@ const Login = () => {
                         addNotification("Wrong credentials",types.danger);
                     });
             }
-        } catch (e) {
+        } catch (ex) {
             console.log("Cant log in")
         }
 

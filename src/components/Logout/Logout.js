@@ -15,7 +15,7 @@ const Logout = () => {
                 logout();
                 navigate('/');
             })
-        }catch(e){
+        }catch(ex){
             console.log("cant log out");
         }
     }, [])

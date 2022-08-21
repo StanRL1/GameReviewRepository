@@ -28,8 +28,8 @@ const Register = () => {
                     navigate('/');
                     }
                 });
-            }catch(e){
-                console.log("Cant register")
+            }catch(ex){
+                addNotification("Cannot process register",types.warn);
             }
         }else{
             addNotification("Passwords dont match",types.warn);

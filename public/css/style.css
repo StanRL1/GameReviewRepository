@@ -762,6 +762,8 @@ font-size: 0.9em;
 	background: #eee;
 	  padding: 1em;
     overflow: hidden;
+    border: double;
+
 }
 .col-1 h4{
 	font-size:1.2em;

@@ -32,7 +32,7 @@ const Contact = () => {
                     addNotification("Mail submitted",types.info);
                 });
 
-            } catch (e) {
+            } catch (ex) {
                 console.log("Cannot submit mail");
             }
         }

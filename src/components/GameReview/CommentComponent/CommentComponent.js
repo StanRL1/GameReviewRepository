@@ -2,6 +2,7 @@
 import MyImage from '../../../images/icon1.png';
 import * as commentService from '../../../services/commentService';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
 import { useAuthContext } from '../../../contexts/AuthContext';
 const CommentComponent = (
     comment
@@ -10,6 +11,7 @@ const CommentComponent = (
         const { user } = useAuthContext();
     const commentId = comment.comment._id;
     const commentUserId= comment.comment.userId;
+    const { addNotification } = useNotificationContext();
 
     const deleteHandler = () => {
         try{
@@ -17,8 +19,8 @@ const CommentComponent = (
             .then(() => {
                 navigate("/reviews");
             });
-        }catch(e){
-            console.log(e.message);
+        }catch(ex){
+            addNotification("Comment deleted !",types.info);
         }
     }
 
