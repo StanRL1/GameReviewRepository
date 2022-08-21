@@ -17,7 +17,7 @@ const EditProfile = () => {
         console.log(email, name, password,reppassword);
         if (email && name && password && reppassword) {
             if (password === reppassword) {
-                authService.update(user._id,user.accessToken,{email,password,name})
+                authService.update(user._id,{email,password,name})
                 .then(authData=>{
                     login(authData);
                     addNotification("Successfully changed Profile Info", types.info);

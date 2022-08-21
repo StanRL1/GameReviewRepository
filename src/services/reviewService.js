@@ -11,6 +11,8 @@ export const getMyReviews = (ownerId) => {
 };
 
 export const create = async (reviewData, token) => {
+    console.log(JSON.stringify(reviewData))
+
     let response = await fetch(`${baseUrl}/reviews`, {
         method: 'POST',
         headers: {
